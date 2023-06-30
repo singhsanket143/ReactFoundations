@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 
-// import variable, { hello, greeting } from './demo_default_export';
+import variable, { hello, greeting } from './demo_default_export';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
