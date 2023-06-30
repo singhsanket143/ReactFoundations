@@ -1,9 +1,6 @@
+import React from "react";
 function App() {
-  return (
-    <div>
-      <h1>Welcome to my React APP</h1>
-    </div>
-  );
+  return React.createElement("div", {}, React.createElement("h1", {}, "welcome welcome"));
 }
 
 export default App;
