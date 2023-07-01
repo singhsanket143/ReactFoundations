@@ -1,14 +1,11 @@
 import './DogTile.css';
 import DogDescription from './DogDescription';
-function DogTile() {
-    const text = "Cute puppy";
-    // const customStyle = ;
-    const imgUrl = "https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?cs=srgb&dl=pexels-chevanon-photography-1108099.jpg&fm=jpg";
+function DogTile(props) {
     return (
       <div className="first"> 
-        <img src={imgUrl} />
-        <h3 style={{fontSize: '20px', color: 'red'}}> {text} </h3>
-        <DogDescription />
+        <img src={props.image} />
+        <h3 style={{fontSize: '20px', color: 'red'}}> {props.text} </h3>
+        <DogDescription description={props.description} />
       </div>
     );
 }

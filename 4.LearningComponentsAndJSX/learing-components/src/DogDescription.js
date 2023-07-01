@@ -1,7 +1,7 @@
-function DogDescription() {
+function DogDescription({description}) {
     return (
         <>
-            This is a pretty cute dog, isn't it ? :-p
+            {description}
         </>
     );
 }
