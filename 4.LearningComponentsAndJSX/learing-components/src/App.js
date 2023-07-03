@@ -9,6 +9,9 @@ function App() {
       <DogTile description="d2" text="puppy2" image="https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?cs=srgb&dl=pexels-chevanon-photography-1108099.jpg&fm=jpg" />
       <DogTile description="d3" text="puppy3" image="https://cdn.pixabay.com/photo/2016/12/13/05/15/puppy-1903313_1280.jpg" />
       <DogTile description="d4" text="puppy4" image="https://www.shutterstock.com/image-photo/small-cute-puppy-maltese-dog-260nw-1735724201.jpg" />
+      <DogTile description="d4" text="puppy4" image="https://www.shutterstock.com/image-photo/small-cute-puppy-maltese-dog-260nw-1735724201.jpg"> 
+        <p>This is children prop</p>
+      </DogTile>
     </section>
   );
 }
