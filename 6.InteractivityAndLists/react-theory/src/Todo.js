@@ -11,7 +11,7 @@ function Todo(props) {
     }
     function editTodo(id, newTodo) {
         let updatedTodos = todoItems.map((todo) => {
-            if(todo.id == id) todo.data = newTodo;
+            if(todo.id === id) todo.data = newTodo;
             return todo;
         });
         setTodoItems(updatedTodos);
@@ -24,7 +24,7 @@ function Todo(props) {
                 onChange={(e) => setInputText(e.target.value)} 
             />
             <button 
-                onClick={() => setTodoItems([...todoItems, {data: inputText, id: (new Date()).getTime()}])}
+                onClick={() => setTodoItems([...todoItems, {data: inputText, id: todoItems[todoItems.length-1].id+1}])}
             >Add todo</button>
             <ul> 
                 {todoItems.map((todo) => <TodoItem 

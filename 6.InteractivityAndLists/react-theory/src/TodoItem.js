@@ -19,7 +19,6 @@ function TodoItem(props) {
             }>Done</button>
             <button onClick={() => {
                 setIsEditting(!isEditting)
-                props.edit(todoData);
             }}>
                 {(isEditting) ? 'Save' : 'Edit'}
             </button>
