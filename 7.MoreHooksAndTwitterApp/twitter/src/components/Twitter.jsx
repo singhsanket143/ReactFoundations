@@ -31,7 +31,7 @@ function Twitter() {
                 }
             })
         )
-    }, []);
+    }, [tweets]);
 
     const sortTweets = useCallback(() => {
         tweets.sort((t1, t2) => t2.createdAt.getTime() - t1.createdAt.getTime());
