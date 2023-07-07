@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import '../CSS/Tweet.css';
-function Tweet({ tweetId, content, likeCount, createdAt, onEdit }) {
+function Tweet({ tweetId, content, likeCount, createdAt }) {
     const [isEditting, setIsEditting] = useState(false);
 
     return (
@@ -12,12 +12,12 @@ function Tweet({ tweetId, content, likeCount, createdAt, onEdit }) {
                             type="text" 
                             value={content} 
                             onChange={(e) => {
-                                onEdit({
-                                    id: tweetId,
-                                    content: e.target.value,
-                                    likeCount: likeCount,
-                                    createdAt: createdAt
-                                })
+                                // onEdit({
+                                //     id: tweetId,
+                                //     content: e.target.value,
+                                //     likeCount: likeCount,
+                                //     createdAt: createdAt
+                                // })
                             }}  
                         />
                     ) : content}

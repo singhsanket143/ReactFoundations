@@ -1,6 +1,7 @@
 import TweetList from './TweetList';
 import AddTweet from './AddTweet';
 import { useState, useCallback, memo } from 'react';
+import { TweetContext } from '../context/tweetContext';
 const initialDymmyTweets = [
     { id: 0, content: 'we have a new twitter called as threads', likeCount: 3, createdAt: new Date()},
     { id: 1, content: 'What should we post ??', likeCount: 4, createdAt: new Date()},
@@ -11,15 +12,15 @@ const MemoisedAddTweet = memo(AddTweet);
 
 function Twitter() {
     const [tweets, setTweets] = useState(initialDymmyTweets);
-    const handleAddTweet = useCallback((text) => {
-        let nextId = (tweets.length > 0) ? tweets[tweets.length - 1].id+1 : 0;
-        setTweets([...tweets, {
-            content: text,
-            likeCount: Math.floor(Math.random()*10), // this is a random like count,
-            id: nextId,
-            createdAt: new Date()
-        }]);
-    }, [tweets]);
+    // const handleAddTweet = useCallback((text) => {
+    //     let nextId = (tweets.length > 0) ? tweets[tweets.length - 1].id+1 : 0;
+    //     setTweets([...tweets, {
+    //         content: text,
+    //         likeCount: Math.floor(Math.random()*10), // this is a random like count,
+    //         id: nextId,
+    //         createdAt: new Date()
+    //     }]);
+    // }, [tweets]);
 
     const handleEditTweet = useCallback((tweet) => { // this incoming tweet is the updated tweet
         setTweets(
@@ -41,11 +42,13 @@ function Twitter() {
 
     return (
         <>
-            <MemoisedAddTweet onAddTweet={handleAddTweet} />
+        <TweetContext.Provider value={{tweets, setTweets}} >
+            <MemoisedAddTweet/>
             <button onClick={sortTweets}>
                 Sort Tweet By CreatedAt
             </button>
             <TweetList tweets={tweets} onEditTweet={handleEditTweet} />
+        </TweetContext.Provider>
         </>
       );
 

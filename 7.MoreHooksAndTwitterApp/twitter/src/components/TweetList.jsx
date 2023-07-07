@@ -9,13 +9,16 @@ function TweetList({ tweets, onEditTweet }) {
         <ul className="tweet-list">
             {
                 tweets.map((tweet) => (
-                    <li className="tweet-like-wrapper" key={tweet.id}>
+                    <li 
+                        className="tweet-like-wrapper" 
+                        key={tweet.id}
+                    >
                         <MemoisedTweet 
                             tweetId={tweet.id}
                             content={tweet.content} 
                             likeCount={tweet.likeCount} 
                             createdAt={tweet.createdAt.toString()} 
-                            onEdit={onEditTweet}
+                            // onEdit={onEditTweet}
                         />
                     </li>
                 ))
