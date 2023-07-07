@@ -8,22 +8,13 @@ const initialDymmyTweets = [
     { id: 2, content: 'what is up with tech community ?', likeCount: 2, createdAt: new Date()}
   ];
 
-const MemoisedAddTweet = memo(AddTweet);
+// const MemoisedAddTweet = memo(AddTweet);
 
 function Twitter() {
     const [tweets, setTweets] = useState(initialDymmyTweets);
-    // const handleAddTweet = useCallback((text) => {
-    //     let nextId = (tweets.length > 0) ? tweets[tweets.length - 1].id+1 : 0;
-    //     setTweets([...tweets, {
-    //         content: text,
-    //         likeCount: Math.floor(Math.random()*10), // this is a random like count,
-    //         id: nextId,
-    //         createdAt: new Date()
-    //     }]);
-    // }, [tweets]);
 
     const handleEditTweet = useCallback((tweet) => { // this incoming tweet is the updated tweet
-        setTweets(
+        setTweets(tweets => 
             tweets.map((currentTweet) => {
                 if(currentTweet.id === tweet.id) {
                     return tweet;
@@ -32,18 +23,31 @@ function Twitter() {
                 }
             })
         )
-    }, [tweets]);
+    }, []);
+
+    // const handleEditTweet = (tweet) => { // this incoming tweet is the updated tweet
+    //     setTweets(tweets => 
+    //         tweets.map((currentTweet) => {
+    //             if(currentTweet.id === tweet.id) {
+    //                 return tweet;
+    //             } else {
+    //                 return currentTweet;
+    //             }
+    //         })
+    //     )
+    // };
 
     const sortTweets = useCallback(() => {
+        console.log(tweets);
         tweets.sort((t1, t2) => t2.createdAt.getTime() - t1.createdAt.getTime());
-        setTweets([...tweets]);
+        setTweets(tweets => [...tweets]);
     }, [tweets]);
 
 
     return (
         <>
         <TweetContext.Provider value={{tweets, setTweets}} >
-            <MemoisedAddTweet/>
+            <AddTweet/>
             <button onClick={sortTweets}>
                 Sort Tweet By CreatedAt
             </button>

@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import React, { useState, useContext } from "react";
 import { TweetContext } from "../context/tweetContext";
 function AddTweet() {
     const [text, setText] = useState("");
@@ -25,5 +25,5 @@ function AddTweet() {
         </>
     );
 }
-
+// export default React.memo(AddTweet);
 export default AddTweet;
