@@ -1,6 +1,9 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import '../CSS/Tweet.css';
-function Tweet({ tweetId, content, likeCount, createdAt }) {
+import LikesAndTimestamp from './LikesAndTimestamp';
+
+// const MemoisedLikedAndTimestamp = React.memo(LikesAndTimestamp);
+function Tweet({ tweetId, content, likeCount, createdAt, onEdit }) {
     const [isEditting, setIsEditting] = useState(false);
 
     return (
@@ -12,12 +15,12 @@ function Tweet({ tweetId, content, likeCount, createdAt }) {
                             type="text" 
                             value={content} 
                             onChange={(e) => {
-                                // onEdit({
-                                //     id: tweetId,
-                                //     content: e.target.value,
-                                //     likeCount: likeCount,
-                                //     createdAt: createdAt
-                                // })
+                                onEdit({
+                                    id: tweetId,
+                                    content: e.target.value,
+                                    likeCount: likeCount,
+                                    createdAt: new Date()
+                                })
                             }}  
                         />
                     ) : content}
@@ -29,17 +32,11 @@ function Tweet({ tweetId, content, likeCount, createdAt }) {
                 </div>
             </div>
             
-            <div className="like-createdAt-wrapper">
-                <div className="likes">
-                    {likeCount} likes
-                </div>
-                <div className="created-at">
-                    <b>Tweeted at</b> {createdAt}
-                </div>
-            </div>
+            <LikesAndTimestamp likeCount={likeCount} createdAt={createdAt} />
             
         </div>
     )
 }
 
-export default Tweet;
+// export default Tweet;
+export default React.memo(Tweet);

@@ -29,7 +29,7 @@ function Todo(props) {
             <ul> 
                 {todoItems.map((todo) => <TodoItem 
                                             todo={todo}
-                                            key={todo.id} 
+                                            key={todo.id} // id: 1
                                             delete={() => deleteTodo(todo.id)} 
                                             edit={(newTodo) => editTodo(todo.id, newTodo)}
                                             />)} 
@@ -39,3 +39,4 @@ function Todo(props) {
 }
 
 export default Todo;
+

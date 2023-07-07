@@ -2,7 +2,7 @@ import Tweet from "./Tweet";
 import { memo } from 'react';
 import '../CSS/TweetList.css';
 
-const MemoisedTweet = memo(Tweet);
+// const MemoisedTweet = memo(Tweet);
 
 function TweetList({ tweets, onEditTweet }) {
     return (
@@ -13,12 +13,12 @@ function TweetList({ tweets, onEditTweet }) {
                         className="tweet-like-wrapper" 
                         key={tweet.id}
                     >
-                        <MemoisedTweet 
+                        <Tweet 
                             tweetId={tweet.id}
                             content={tweet.content} 
                             likeCount={tweet.likeCount} 
                             createdAt={tweet.createdAt.toString()} 
-                            // onEdit={onEditTweet}
+                            onEdit={onEditTweet}
                         />
                     </li>
                 ))
