@@ -5,16 +5,16 @@ import UserList from '../UserList/UserList';
 
 export default function RowAndColumnSpacing() {
   return (
-    <Box display="flex" justifyContent="space-around" sx={{ width: '100%', mt: '3rem' }}>
-      <Grid container alignItems="start" justifyContent="center" rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-        <Grid  md={6}>
+    <Box container sx={{ mt: '3rem' }}>
+      <Grid container alignItems="start" justifyContent="center" rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 4 }}>
+        <Grid>
             <UserList />
         </Grid>
         <Grid 
             container 
             alignItems="center"
             justifyContent="center"
-            direction="column" md={6}>
+            direction="column" md={8}>
             {/* Posts */}
           <PostCardList />
         </Grid>

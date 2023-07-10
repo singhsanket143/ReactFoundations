@@ -11,6 +11,7 @@ function PostCardList() {
         })
         .then(response => {
             const responseObject = response.data;
+            console.log(responseObject)
             setPosts([...responseObject.data]);
         })
     }, []);
@@ -18,7 +19,7 @@ function PostCardList() {
 
     return ( (posts.length == 0) ? 
                 "loading...." : 
-                posts.map((post) => <PostCard 
+                posts.map((post) => <PostCard
                     content={post.text} 
                     image={post.image} 
                     authorFirstName={post.owner.firstName}
