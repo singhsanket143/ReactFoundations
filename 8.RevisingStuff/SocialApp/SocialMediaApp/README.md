@@ -6,3 +6,7 @@ All the commands used to setup this project:
  - `npm install @mui/material @emotion/react @emotion/styled` -> install material ui
  - `npm install @fontsource/roboto` -> install mui roboto font
  - `npm install @mui/icons-material` -> installed material icon
+
+
+
+https://github.com/mui/material-ui/issues/29216

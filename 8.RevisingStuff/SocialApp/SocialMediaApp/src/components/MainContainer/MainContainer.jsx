@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import PostCardList from '../PostCardList/PostCardList';
 import UserList from '../UserList/UserList';
 
-export default function RowAndColumnSpacing() {
+export default function MainContainer() {
   return (
     <Box container sx={{ mt: '3rem' }}>
       <Grid container alignItems="start" justifyContent="center" rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 4 }}>

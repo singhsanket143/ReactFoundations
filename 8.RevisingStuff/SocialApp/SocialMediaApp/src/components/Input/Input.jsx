@@ -1,15 +1,19 @@
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import axios from 'axios';
+import LoadingButton from '@mui/lab/LoadingButton';
+import PostCardContext from '../../providers/PostsProvider';
 
 function Input() {
     const [postText, setPostText] = useState("");
     const [imageUrl, setImageUrl] = useState("");
-
+    const [loading, setLoading] = useState(false);
+    const {posts, setPosts} = useContext(PostCardContext);
     async function createPost() {
-        console.log("Inside create post")
+        console.log(posts);
+        setLoading(true);
         axios.post("https://dummyapi.io/data/v1/post/create", 
         {
             owner: '60d0fe4f5311236168a109ca',
@@ -24,6 +28,10 @@ function Input() {
         )
         .then(response => {
             console.log(response.data);
+            setPosts([response.data, ...posts])
+            setLoading(false);
+            setPostText("");
+            setImageUrl("");
         })
     }
 
@@ -46,9 +54,10 @@ function Input() {
                 onChange={(e) => setImageUrl(e.target.value)}
                 variant="outlined" />
 
-            <Button variant="contained" onClick={createPost}>
-                Submit
-            </Button>
+            {
+                (!loading) ? <Button loading variant="contained" onClick={createPost}>Submit</Button> : <LoadingButton loading variant="outlined">Submit</LoadingButton>
+            }
+            
         </Box>
     )
 }
