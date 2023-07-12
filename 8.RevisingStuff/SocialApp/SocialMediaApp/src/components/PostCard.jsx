@@ -22,7 +22,7 @@ export default function PostCard({authorFirstName, image, content}) {
             {authorFirstName.substring(0, 1)}
           </Avatar>
         }
-        title="Shrimp and Chorizo Paella"
+        title={authorFirstName}
         subheader="September 14, 2016"
       />
       {(image.length > 0) ?
