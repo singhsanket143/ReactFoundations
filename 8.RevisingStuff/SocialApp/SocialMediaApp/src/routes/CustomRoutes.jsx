@@ -5,7 +5,7 @@ export default function CustomRoutes() {
     return (
         <Routes>
             <Route path="/"  element={ <SocialApp /> }/>
-            <Route path="/user/:id" element={ <UserProfileDetails /> } />
+            <Route path="/user/:userId" element={ <UserProfileDetails /> } />
         </Routes>
     )
 }
