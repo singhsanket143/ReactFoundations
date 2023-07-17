@@ -1,5 +1,5 @@
 {
-  "name": "socialmediaapp",
+  "name": "countdown",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,19 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@emotion/react": "^11.11.1",
-    "@emotion/styled": "^11.11.0",
-    "@fontsource/roboto": "^5.0.4",
-    "@mui/icons-material": "^5.13.7",
-    "@mui/lab": "^5.0.0-alpha.136",
-    "@mui/material": "^5.13.7",
-    "@tanstack/query-sync-storage-persister": "^4.29.25",
-    "@tanstack/react-query-persist-client": "^4.29.25",
-    "axios": "^1.4.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-query": "^3.39.3",
-    "react-router-dom": "^6.14.1"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.14",

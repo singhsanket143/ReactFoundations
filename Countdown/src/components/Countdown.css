@@ -1,0 +1,39 @@
+input {
+    border: none;
+}
+
+#submit {
+    padding: 5px;
+    color: white;
+    background-color: cadetblue;
+    border: none;
+    margin-left: 10px;
+}
+
+#display {
+    margin-top: 35px;
+    padding: 2rem;;
+    background-color: dodgerblue;
+    color: black;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+}
+
+ul {
+    padding: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+} 
+
+li {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+span {
+    font-size: 40px;
+}
