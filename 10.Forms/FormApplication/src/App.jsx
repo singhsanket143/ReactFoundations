@@ -4,7 +4,7 @@ import Form from './components/Form/Form'
 import { FormContext } from './providers/FormContext';
 
 function App() {
-  const [formInput, setFormInput] = useState({});
+  const [formInput, setFormInput] = useState({email: '', password: ''});
   return (
     <>
       Form application
