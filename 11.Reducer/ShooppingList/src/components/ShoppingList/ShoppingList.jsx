@@ -6,35 +6,34 @@ import Header from "../Header/Header";
 import InputItem from "../InputItem/InputItem";
 import ItemList from '../ItemList/ItemList';
 import { ToastContainer } from 'react-toastify';
-import { useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
+import { useReducer } from 'react';
+
+// reducer imports
+import ItemReducer from '../../reducers/itemReducer';
 
 function ShoppingList() {
 
-    const [shoppingItems, setShoppingItems] = useState([]);
-
-    function handleAddItem(itemName) {
-        setShoppingItems([
-            ...shoppingItems, 
-            {id: uuidv4(), name: itemName, quantity: 1}
-        ]);
+    // const [shoppingItems, setShoppingItems] = useState([]);
+    const [shoppingItems, dispatch] = useReducer(ItemReducer, []);
+    function handleAddItem(name) {
+        dispatch({
+            type: 'add_item',
+            itemName: name
+        });
     }
 
-    function handleAddQuantity(itemId) {
-        const newShoppingItems = shoppingItems.map(item => {
-            if(item.id == itemId) item.quantity++;
-            return item;
-        });
-        setShoppingItems(newShoppingItems);
+    function handleAddQuantity(id) {
+        dispatch({
+            type: 'increment_item',
+            itemId: id
+        })
     }
 
-    function handleDecQuantity(itemId) {
-        let newShoppingItems = shoppingItems.map(item => {
-            if(item.id == itemId) item.quantity--;
-            return item;
-        });
-        newShoppingItems = newShoppingItems.filter(item => item.quantity > 0);
-        setShoppingItems(newShoppingItems);
+    function handleDecQuantity(id) {
+        dispatch({
+            type: 'decrement_item',
+            itemId: id
+        })
     }
 
     return (
