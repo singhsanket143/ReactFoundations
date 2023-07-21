@@ -1,5 +1,9 @@
-import HeaderImage from '../../assets/header_image.avif';
+// CSS Imports
 import './Header.css';
+
+// Component Imports
+import HeaderImage from '../../assets/header_image.avif';
+
 function Header() {
     return (
         <div className='header-wrapper'>
