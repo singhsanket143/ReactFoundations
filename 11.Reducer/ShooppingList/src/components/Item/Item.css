@@ -2,12 +2,12 @@
     display: flex;
     width: 100%;
     justify-content: space-around;
-    margin-bottom: 2rem;
 }
 
 .item-name {
     flex-basis: 80%;
     font-size: x-large;
+    letter-spacing: 0.3rem;
 }
 
 .item-quantity {

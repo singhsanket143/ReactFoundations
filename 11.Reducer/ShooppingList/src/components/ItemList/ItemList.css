@@ -3,3 +3,29 @@
     max-width: 500px;
     
 }
+
+.items-list {
+    display: flex;
+    align-items:center;
+    margin-bottom: 2rem;
+}
+
+.change-quanity {
+    padding: 1rem;
+    border-radius: 100%;
+    font-size: small;
+}
+
+.add-item {
+    background-color: var(--light-blue);
+    color: white;
+}
+
+.remove-item {
+    background-color: lightgrey;
+    color: white;
+}
+
+.change-quanity:hover {
+    color: black;
+}
