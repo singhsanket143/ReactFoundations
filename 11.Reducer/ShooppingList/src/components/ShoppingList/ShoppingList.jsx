@@ -1,6 +1,9 @@
 // CSS Imports
 import './ShoppingList.css';
 
+// Context imports
+import { ShoppingItemsContext, ShoppingDispatchContext } from '../../providers/ShoppingContext';
+
 // Component imports
 import Header from "../Header/Header";
 import InputItem from "../InputItem/InputItem";
@@ -15,13 +18,6 @@ function ShoppingList() {
 
     // const [shoppingItems, setShoppingItems] = useState([]);
     const [shoppingItems, dispatch] = useReducer(ItemReducer, []);
-    function handleAddItem(name) {
-        dispatch({
-            type: 'add_item',
-            itemName: name
-        });
-    }
-
     function handleAddQuantity(id) {
         dispatch({
             type: 'increment_item',
@@ -38,18 +34,19 @@ function ShoppingList() {
 
     return (
         <>
-            <Header />
-            <ToastContainer />
-            <div className="current-shopping-list">
-                <InputItem
-                    addItem={handleAddItem}
-                />
-                <ItemList 
-                    shoppingItems={shoppingItems}
-                    addQuantity={handleAddQuantity}
-                    decQuantity={handleDecQuantity}
-                />
-            </div>
+            <ShoppingItemsContext.Provider value={shoppingItems}>
+                <ShoppingDispatchContext.Provider value={dispatch}>
+                    <Header />
+                    <ToastContainer />
+                    <div className="current-shopping-list">
+                        <InputItem/>
+                        <ItemList 
+                            addQuantity={handleAddQuantity}
+                            decQuantity={handleDecQuantity}
+                        />
+                    </div>
+                </ShoppingDispatchContext.Provider>
+            </ShoppingItemsContext.Provider>
         </>
     )
 }
