@@ -4,7 +4,9 @@ import { addTodo } from '../../actions/index';
 function TodoInput() {
     const [todoText, setTodoText] = useState('');
     
-    const todoList = useSelector((state) => state.todos);
+    const todoList = useSelector((state) => {
+        return state.todos
+    });
     const dispatch = useDispatch();
 
     function insertTodo() {
