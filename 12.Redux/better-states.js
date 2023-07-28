@@ -1,4 +1,4 @@
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
 const state = {
     users: [
         {
@@ -42,6 +42,46 @@ const state = {
         }
     ]
 }
+
+function logger1({ getState }) {
+    return next => action => {
+      console.log('will dispatch from logger 1', action)
+  
+      // Call the next dispatch method in the middleware chain.
+      const returnValue = next(action)
+  
+      console.log('state after dispatch from logger 1', returnValue, getState())
+  
+      // This will likely be the action itself, unless
+      // a middleware further in chain changed it.
+      return returnValue
+    }
+  }
+
+  function logger2({getState, dispatch}) { // obj = {dispatch, getState}
+    // return next => action => {
+    //   console.log('will dispatch from logger 2', action)
+  
+    //   // Call the next dispatch method in the middleware chain.
+    //   const returnValue = next(action)
+  
+    //   console.log('state after dispatch from logger 2', getState())
+  
+    //   // This will likely be the action itself, unless
+    //   // a middleware further in chain changed it.
+    //   return returnValue
+    // }
+    return function (next) {
+        return function (action) {
+            // action we dispatched
+            console.log("My impl", action, getState());
+            const response = next(action);
+            console.log("response", response, getState());
+
+            return 10;
+        }
+    }
+  }
 
 // function reducer(state, action) {
 //     if(action.type == 'EDIT_TODO') {
@@ -88,10 +128,10 @@ function todoReducer(todos = state.todos, action) {
 
 
 const combinedReducer = combineReducers({users: userReducer, todos: todoReducer});
-const store = createStore(combinedReducer);
+const store = createStore(combinedReducer, {}, applyMiddleware(logger1, logger2));
 
-console.log(store.getState());
+// console.log("states is:", store.getState());
 
 store.dispatch({type: ADD_USER, userId: 5, userName: 'Tanmay'});
 
-console.log(store.getState());
+// console.log("states is:", store.getState());
