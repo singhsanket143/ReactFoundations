@@ -1,13 +1,16 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addTodo } from '../../actions/index';
+// import { addTodo } from '../../actions/index';
+import todoSlice from "../../slices/todoSlice";
 function TodoInput() {
     const [todoText, setTodoText] = useState('');
     
     const todoList = useSelector((state) => {
-        return state.todos
+        return state.todos.value
     });
     const dispatch = useDispatch();
+
+    const { addTodo } = todoSlice.actions; 
 
     function insertTodo() {
         const lastTodoId = (todoList.length == 0) ? 0 : todoList[todoList.length - 1].id;
