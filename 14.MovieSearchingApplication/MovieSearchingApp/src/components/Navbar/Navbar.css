@@ -39,6 +39,9 @@
     color: black;
     width: 100%;
     border-radius: 10px;
+    max-height: 400px;
+    overflow-y: scroll;
+    border: 1px solid var(--light-prime-gray);
 }
 #result-list > .autocomplete-result {
     font-size: large;
