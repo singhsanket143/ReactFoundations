@@ -17,7 +17,6 @@ function Home() {
         console.log(urls);
         const response = await axios.all(urls.map(url => axios.get(url)));
         const movies = response.map((movieResponse) => movieResponse.data.Search);
-        console.log([].concat(...movies));
         setMovieList([].concat(...movies));
     }
 
