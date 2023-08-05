@@ -1,0 +1,27 @@
+.movie-details-wrapper {
+    margin-top: 3rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.movie-card {
+    flex-basis: 40%;
+}
+
+.movie-details {
+    color: white;
+    flex-basis: 50%;
+    font-size: x-large;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.genre {
+    border: 1px solid var(--dull-blue);
+    background-color: var(--dull-blue);
+    border-radius: 20px;
+    padding: 10px 20px;
+    margin-right: 1rem;
+}
