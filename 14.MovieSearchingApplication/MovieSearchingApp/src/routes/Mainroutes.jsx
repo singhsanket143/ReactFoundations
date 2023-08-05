@@ -8,7 +8,7 @@ function MainRoutes() {
         <Routes> 
             {/* routes contain multiple route */}
             <Route path='/' element={<Home />} />
-            <Route path='/movie/:name' element={<MovieDetails/>} />
+            <Route path='/movie/:id' element={<MovieDetails/>} />
             <Route path='*' element={<Error />} />
         </Routes>
     )

@@ -9,6 +9,7 @@ import useMovieList from "../hooks/useMovieList";
 function Home() {
 
     const {movieList} = useMovieList('harry', 'avengers', 'batman');
+    
 
     return (
         <>

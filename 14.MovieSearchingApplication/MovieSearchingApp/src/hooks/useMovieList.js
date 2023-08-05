@@ -15,7 +15,6 @@ function useMovieList(...args) {
                 const movies = response.map((movieResponse) => movieResponse.data.Search);
                 setMovieList([].concat(...movies));
             }
-           
         } catch(error) {
             console.log("api request failed")
         }
