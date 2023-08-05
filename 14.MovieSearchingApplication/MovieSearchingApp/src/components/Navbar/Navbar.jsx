@@ -11,7 +11,6 @@ function Navbar() {
     const navigator = useNavigate();
 
     function handleAutoCompleteClick(e, movieImdbId) {
-        console.log("onmousedown",e.target);
         navigator(`/movie/${movieImdbId}`);
     }
 
