@@ -7,17 +7,24 @@
   --font-color: black;
   --font-color-inverted: white;
   --light-prime-gray: #32373e;
+}
 
+[data-theme='light'] {
   /* light mode */
-  /* --prime-blue: #00a0d6;
+  --prime-blue: #00a0d6;
   --dull-blue: #364f65;
   --dark-blue: #ffffff;
   --light-prime-gray: #e6ecf5;
   --card-background: #364f65;
   --font-color: white;
-  --font-color-inverted: black; */
+  --font-color-inverted: black;
 }
 
 body {
+  margin: 0;
+  padding: 0;
+}
+
+#app-wrapper {
   background-color: var(--dark-blue);
 }

@@ -1,6 +1,6 @@
 .navbar-wrapper {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     border: 1px solid var(--dull-blue);
     padding: 1rem;
     align-items: center;
@@ -58,4 +58,9 @@
 
 .autocomplete-result:hover {
     background-color:gainsboro;
+}
+
+.theme-icon {
+    font-size: x-large;
+    cursor: pointer;
 }
