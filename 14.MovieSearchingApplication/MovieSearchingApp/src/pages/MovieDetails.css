@@ -10,7 +10,7 @@
 }
 
 .movie-details {
-    color: white;
+    color: var(--font-color-inverted);
     flex-basis: 50%;
     font-size: x-large;
     display: flex;
@@ -24,4 +24,5 @@
     border-radius: 20px;
     padding: 10px 20px;
     margin-right: 1rem;
+    color: white;
 }

@@ -1,8 +1,21 @@
 :root {
+  /* Dark mode */
   --prime-blue: #00a0d6;
   --dull-blue: #364f65;
   --dark-blue: #191e26;
+  --card-background: whitesmoke;
+  --font-color: black;
+  --font-color-inverted: white;
   --light-prime-gray: #32373e;
+
+  /* light mode */
+  /* --prime-blue: #00a0d6;
+  --dull-blue: #364f65;
+  --dark-blue: #ffffff;
+  --light-prime-gray: #e6ecf5;
+  --card-background: #364f65;
+  --font-color: white;
+  --font-color-inverted: black; */
 }
 
 body {
