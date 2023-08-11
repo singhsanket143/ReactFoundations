@@ -22,6 +22,10 @@ function MovieDetails() {
 
     useEffect(() => {
         downloadMovie();
+        const random = Math.random();
+        if(random > 0.5) {
+            throw "error";
+        }
     }, [id]);
 
     return (
