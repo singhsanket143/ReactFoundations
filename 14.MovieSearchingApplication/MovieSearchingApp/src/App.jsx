@@ -1,13 +1,15 @@
+import { useEffect, useState } from 'react';
+
 // CSS import
 import './App.css'
 
 // Component imports
 import Navbar from './components/Navbar/Navbar';
 import MainRoutes from './routes/Mainroutes';
+// const MainRoutes = React.lazy(() => import('./routes/Mainroutes'));
 
 // Context import
 import ThemeContext from './context/ThemeContext';
-import { useEffect, useState } from 'react';
 
 function App() {
 
